@@ -1,6 +1,9 @@
 {
-  "name": "next-starter",
-  "version": "0.1.0",
+  "name": "create-next-starter",
+  "version": "1.0.0",
+  "bin": {
+    "create-next-starter": "./cli.js"
+  },
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
