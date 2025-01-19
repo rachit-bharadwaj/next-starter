@@ -6,6 +6,7 @@ Create a new Next.js application quickly and easily with this CLI tool. This pac
 
 - [Installation](#installation)
 - [Usage](#usage)
+- [Features](#features)
 - [Project Structure](#project-structure)
 - [Contributing](#contributing)
 - [License](#license)
