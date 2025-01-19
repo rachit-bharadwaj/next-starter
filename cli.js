@@ -62,7 +62,7 @@ async function main() {
     console.log("Removing .git folder...");
     rmSync(path.join(projectPath, ".git"), { recursive: true, force: true });
     console.log(
-      ".git folder removed successfully! You can initiate your git fromm scratch now."
+      ".git folder removed successfully! You can initiate your git from scratch now."
     );
 
     // Step 3: Change to project directory
@@ -198,7 +198,13 @@ export default function RootLayout({
 
     // Create additional folders
     console.log("Creating additional folders...");
-    const additionalFolders = ["contexts", "containers", "partials", "types"];
+    const additionalFolders = [
+      "contexts",
+      "components",
+      "containers",
+      "partials",
+      "types",
+    ];
     additionalFolders.forEach((folder) =>
       mkdirSync(path.join(projectPath, folder))
     );
