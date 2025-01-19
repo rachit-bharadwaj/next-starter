@@ -1,7 +1,14 @@
 #!/usr/bin/env node
 
 import { execSync } from "child_process";
-import { existsSync, mkdirSync, writeFileSync, rmSync } from "fs";
+import {
+  existsSync,
+  mkdirSync,
+  writeFileSync,
+  rmSync,
+  rmdirSync,
+  readdirSync,
+} from "fs";
 import path from "path";
 import inquirer from "inquirer";
 
@@ -20,11 +27,25 @@ async function main() {
     projectName = answers.projectName;
   }
 
-  const projectPath = path.join(process.cwd(), projectName);
+  let projectPath;
 
-  if (existsSync(projectPath)) {
-    console.error(`Error: Directory "${projectName}" already exists.`);
-    process.exit(1);
+  if (projectName === ".") {
+    projectPath = process.cwd();
+
+    // Check if the current directory is empty
+    if (readdirSync(projectPath).length > 0) {
+      console.error(
+        "Error: Current directory is not empty. Please use an empty directory."
+      );
+      process.exit(1);
+    }
+  } else {
+    projectPath = path.join(process.cwd(), projectName);
+
+    if (existsSync(projectPath)) {
+      console.error(`Error: Directory "${projectName}" already exists.`);
+      process.exit(1);
+    }
   }
 
   try {
@@ -38,7 +59,9 @@ async function main() {
     // Step 2.1: Remove .git folder created by create-next-app
     console.log("Removing .git folder...");
     rmSync(path.join(projectPath, ".git"), { recursive: true, force: true });
-    console.log(".git folder removed successfully! You can initiate your git fromm scratch now.");
+    console.log(
+      ".git folder removed successfully! You can initiate your git fromm scratch now."
+    );
 
     // Step 3: Change to project directory
     process.chdir(projectPath);
@@ -174,9 +197,48 @@ export default function RootLayout({
 }`
     );
 
+    // Create additional folders
+    console.log("Creating additional folders...");
+    const additionalFolders = ["contexts", "containers", "partials", "types"];
+    additionalFolders.forEach((folder) =>
+      mkdirSync(path.join(projectPath, folder))
+    );
+
     // Delete unwanted files
     rmSync(path.join(appDir, "page.tsx"));
     rmSync(path.join(appDir, "favicon.ico"));
+
+    // Modify the public folder
+    console.log("Configuring public folder...");
+    const publicFolderPath = path.join(projectPath, "public");
+
+    // Ensure the public folder exists
+    if (!existsSync(publicFolderPath)) {
+      mkdirSync(publicFolderPath);
+    }
+
+    readdirSync(publicFolderPath).forEach((file) => {
+      const filePath = path.join(publicFolderPath, file);
+      if (statSync(filePath).isDirectory()) {
+        rmdirSync(filePath, { recursive: true });
+      } else {
+        fs.unlinkSync(filePath);
+      }
+    });
+
+    // Create `images` and `icons` folders
+    const subfolders = ["images", "icons"];
+    subfolders.forEach((subfolder) => {
+      const subfolderPath = path.join(publicFolderPath, subfolder);
+      mkdirSync(subfolderPath);
+      // Add an index.ts file inside each folder
+      writeFileSync(
+        path.join(subfolderPath, "index.ts"),
+        `// ${subfolder} folder`
+      );
+    });
+
+    console.log("Public folder configured successfully!");
 
     // Step 7: Update README.md
     console.log("Updating README.md...");

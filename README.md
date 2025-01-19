@@ -1,98 +1,173 @@
 # @rachitbharadwaj/create-next-app
 
-Create a new Next.js application quickly and easily with this CLI tool. This package provides a starter template for Next.js projects, enabling developers to get started without the hassle of manual setup.
+A CLI tool to create a fully customized Next.js application quickly and easily. This package sets up a Next.js project preconfigured with Tailwind CSS, Shadcn, TypeScript, and custom folder structures, saving you time and effort.
 
 ## Table of Contents
 
 - [Installation](#installation)
 - [Usage](#usage)
 - [Features](#features)
+- [Customization](#customization)
 - [Project Structure](#project-structure)
 - [Contributing](#contributing)
 - [License](#license)
 
+---
+
 ## Installation
 
-To create a new Next.js app using this CLI tool, you can use `npx`:
+You don’t need to install this tool globally! Use it directly via `npx`:
 
 ```bash
 npx @rachitbharadwaj/create-next-app <project-name>
 ```
 
-Replace <project-name> with the desired name for your new application. If no name is provided, it defaults to my-next-app.
+Replace `<project-name>` with the desired name for your new application. If no name is provided, it defaults to `my-next-app`.
+
+---
 
 ## Usage
 
-After running the command above, navigate into your new project directory:
+After running the command, follow these steps:
 
-```bash
-cd <project-name>
-```
+1. Navigate to your new project directory:
 
-Then, you can start the development server:
+   ```bash
+   cd <project-name>
+   ```
 
-```bash
-npm run dev
-```
+2. Start the development server:
 
-Open your browser and visit http://localhost:3000 to see your new Next.js app in action!
+   ```bash
+   npm run dev
+   ```
+
+3. Open your browser and visit:
+   ```
+   http://localhost:3000
+   ```
+
+Enjoy your ready-to-go Next.js app! 🚀
+
+---
 
 ## Features
 
-- Quickly create a new Next.js application with the latest stable packages.
-- Preconfigured with Tailwind CSS for styling.
-- Support for TypeScript and other essential libraries.
-- Optimized for best practices in Next.js development.
+- **Next.js Framework**: The latest stable version with best practices.
+- **TypeScript Support**: Preconfigured for type-safe development.
+- **Tailwind CSS Integration**: Styled out of the box with Tailwind CSS.
+- **Shadcn Integration**: Preinstalled Shadcn components with Zinc color and CSS variables enabled.
+- **Custom Folder Structure**: Organized to fit modern development workflows.
+- **Removed `.git` folder**: Allows you to initialize your own Git repository.
+
+---
+
+## Customization
+
+### Predefined Configurations:
+
+1. **Tailwind CSS**:
+
+   - Fully customized `tailwind.config.ts` for extended screen sizes, colors, and plugins like `tailwindcss-animate`.
+
+2. **Shadcn Setup**:
+
+   - Default styles with Zinc as the base color.
+   - CSS variables for theming pre-enabled.
+
+3. **Custom Folder Structure**:
+
+   - Adds a `(main)` folder inside the `app` directory with:
+     - `layout.tsx`: Default layout for your pages.
+     - `page.tsx`: Starter page with placeholder content.
+
+4. **Global Metadata**:
+   - Configures `Outfit` font with preloaded subsets and weights. You can customize your font preferences in the `layout.tsx` file.
+   - Sets up a basic metadata template for SEO.
+
+---
 
 ## Project Structure
 
-Your new Next.js application will have the following folder structure, you can for sure modify it according to your needs:
+Your new Next.js application will have the following structure:
 
-```typescript
+```plaintext
 <project-name>
-├── .next/
-├── app/
-│   ├── (main)/
-│   ├── ├── layout.tsx
-│   ├── ├── page.tsx
-│   ├── globals.css
-│   ├── layout.tsx
-├── components/
-├── constants/
-├── containers/
-├── contexts/
-├── lib/
-├── node_modules/
-├── partials/
-├── public/
-├── types/
-├── .eslintrc.json
-├── .gitignore
-├── components.json
-├── next-env.d.ts
-├── next.config.ts
-├── package-lock.json
-├── package.json
-├── postcss.config.mjs
-├── README.md
-├── tailwind.config.ts
-└── tsconfig.json
+├── .next/                  # Next.js build files
+├── app/                    # Application folder
+│   ├── (main)/             # Main folder for your primary layout and pages
+│   │   ├── layout.tsx      # Main layout component
+│   │   └── page.tsx        # Default page component
+│   ├── globals.css         # Global styles
+│   └── layout.tsx          # Root layout with metadata and global font
+├── components/             # Shared components
+├── constants/              # Application constants
+├── containers/             # Page-specific components
+├── contexts/               # React contexts
+├── lib/                    # Utility functions or libraries
+├── node_modules/           # Node dependencies
+├── partials/               # Partial UI components
+├── public/                 # Public assets
+├── types/                  # TypeScript types
+├── .eslintrc.json          # ESLint configuration
+├── .gitignore              # Files to ignore in Git
+├── next-env.d.ts           # Next.js TypeScript configuration
+├── next.config.ts          # Next.js configuration file
+├── package-lock.json       # Lockfile for dependencies
+├── package.json            # Project metadata and scripts
+├── postcss.config.mjs      # PostCSS configuration
+├── README.md               # Documentation for the project
+├── tailwind.config.ts      # Tailwind CSS configuration
+└── tsconfig.json           # TypeScript configuration
 ```
+
+---
 
 ## Contributing
 
 Contributions are welcome! If you'd like to contribute to this project, please follow these steps:
 
-- Fork the repository.
-- Create a new branch: git checkout -b my-feature.
-- Make your changes and commit them: git commit -m 'Add my feature'.
-- Push to the branch: git push origin my-feature.
-- Submit a pull request.
+1. Fork the repository.
+2. Create a new branch:
+   ```bash
+   git checkout -b my-feature
+   ```
+3. Make your changes and commit them:
+   ```bash
+   git commit -m 'Add my feature'
+   ```
+4. Push your changes to the branch:
+   ```bash
+   git push origin my-feature
+   ```
+5. Open a pull request for review.
+
+We value your contributions! 🛠️
+
+---
 
 ## License
 
-This project is licensed under the MIT License. See the LICENSE file for details.
+This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.
 
-For any issues or feature requests, please open an issue on the GitHub repository or contact me at [rachit.infornics.com/contact](https://rachit.infornics.com/contact).
+For any issues or feature requests, please open an issue or contact me at [rachit.infornics.com/contact](https://rachit.infornics.com/contact).
+
+---
+
+## Notes
+
+- If the `create-next-app` setup fails, ensure you have the latest version of Node.js installed.
+- Run `npm install` to ensure all dependencies are installed correctly.
 
 Happy coding! 🚀
+
+---
+
+### **Key Changes**
+
+1. **Added Customization Section**: Highlights predefined configurations (Tailwind, Shadcn, Metadata, Folder Structure).
+2. **Updated Project Structure**: Matches the new folder structure.
+3. **Emphasized Features**: Detailed the key features provided by your CLI tool.
+4. **Polished the Usage Instructions**: Included commands for installation, navigation, and starting the server.
+
+Let me know if you need further edits! 😊
