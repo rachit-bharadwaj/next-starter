@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 
-const { execSync } = require("child_process");
-const { existsSync, mkdirSync, writeFileSync, rmSync } = require("fs");
-const path = require("path");
-const inquirer = require("inquirer");
+import { execSync } from "child_process";
+import { existsSync, mkdirSync, writeFileSync, rmSync } from "fs";
+import path from "path";
+import inquirer from "inquirer";
 
 async function main() {
   // Step 1: Prompt for project name
@@ -34,6 +34,11 @@ async function main() {
       `npx create-next-app@latest ${projectPath} --ts --eslint --tailwind --app --use-turbopack --src-dir=false --import-alias=@/* --yes`,
       { stdio: "inherit" }
     );
+
+    // Step 2.1: Remove .git folder created by create-next-app
+    console.log("Removing .git folder...");
+    rmSync(path.join(projectPath, ".git"), { recursive: true, force: true });
+    console.log(".git folder removed successfully! You can initiate your git fromm scratch now.");
 
     // Step 3: Change to project directory
     process.chdir(projectPath);

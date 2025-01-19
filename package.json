@@ -1,36 +1,24 @@
 {
   "name": "@rachitbharadwaj/create-next-app",
-  "version": "1.0.1",
+  "version": "2.0.0",
+  "description": "A CLI tool to create and configure a Next.js project with custom setup.",
+  "main": "cli.js",
+  "type": "module",
   "bin": {
     "create-next-starter": "./cli.js"
   },
-  "private": false,
   "scripts": {
-    "dev": "next dev --turbopack",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "test": "node cli.js"
   },
+  "keywords": [
+    "nextjs",
+    "cli",
+    "automation",
+    "shadcn"
+  ],
+  "author": "Rachit Bharadwaj",
+  "license": "MIT",
   "dependencies": {
-    "class-variance-authority": "^0.7.0",
-    "clsx": "^2.1.1",
-    "inquirer": "^12.3.2",
-    "lucide-react": "^0.453.0",
-    "next": "latest",
-    "next-themes": "^0.3.0",
-    "react": "latest",
-    "react-dom": "latest",
-    "tailwind-merge": "^2.5.4",
-    "tailwindcss-animate": "^1.0.7"
-  },
-  "devDependencies": {
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "eslint": "^8",
-    "eslint-config-next": "latest",
-    "postcss": "^8",
-    "tailwindcss": "^3.4.1",
-    "typescript": "^5"
+    "inquirer": "^9.2.6"
   }
 }
