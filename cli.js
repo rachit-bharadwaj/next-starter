@@ -8,6 +8,8 @@ import {
   rmSync,
   rmdirSync,
   readdirSync,
+  statSync,
+  unlinkSync,
 } from "fs";
 import path from "path";
 import inquirer from "inquirer";
@@ -69,9 +71,6 @@ async function main() {
     // Step 4: Set up shadcn
     console.log("Setting up shadcn...");
     execSync(`npx shadcn@latest init`, { stdio: "inherit" });
-    execSync(`echo "Default\nZinc\nyes" | npx shadcn@latest init`, {
-      stdio: "inherit",
-    });
 
     // Step 5: Update Tailwind configuration
     console.log("Updating Tailwind configuration...");
@@ -222,7 +221,7 @@ export default function RootLayout({
       if (statSync(filePath).isDirectory()) {
         rmdirSync(filePath, { recursive: true });
       } else {
-        fs.unlinkSync(filePath);
+        unlinkSync(filePath);
       }
     });
 
