@@ -267,9 +267,6 @@ Happy coding!
     `;
     writeFileSync(path.join(projectPath, "README.md"), readmeContent, "utf8");
 
-    console.log(`\nProject "${projectName}" setup is complete!`);
-    console.log(`\nNext steps:\n  cd ${projectName}\n  npm run dev`);
-
     // Check if Git is installed
     console.log("\nChecking for Git...");
     try {
@@ -307,6 +304,8 @@ Happy coding!
         console.log(
           "Git has been successfully initialized with the first commit."
         );
+        console.log(`\nProject setup is complete!`);
+        console.log(`\nNext steps:\n  npm run dev`);
       } else {
         console.log("Git initialization skipped.");
       }
