@@ -6,8 +6,6 @@ A CLI tool to create a fully customized Next.js application quickly and easily. 
 
 Visit the **[GitHub Repository](https://github.com/rachit-bharadwaj/next-starter)** to access the source code, report issues, or contribute:
 
-
-
 If you find this project useful, please ⭐️ star the repository:
 [![GitHub stars](https://img.shields.io/github/stars/rachit-bharadwaj/next-starter.svg?style=social&label=Star)](https://github.com/rachit-bharadwaj/next-starter)
 
