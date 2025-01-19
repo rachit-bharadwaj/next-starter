@@ -269,6 +269,52 @@ Happy coding!
 
     console.log(`\nProject "${projectName}" setup is complete!`);
     console.log(`\nNext steps:\n  cd ${projectName}\n  npm run dev`);
+
+    // Check if Git is installed
+    console.log("\nChecking for Git...");
+    try {
+      execSync("git --version", { stdio: "ignore" });
+      console.log("Git is installed.");
+
+      // Prompt the user to initialize Git
+      const gitAnswers = await inquirer.prompt([
+        {
+          type: "confirm",
+          name: "initializeGit",
+          message: "Do you want to initialize Git in this project?",
+          default: true,
+        },
+      ]);
+
+      if (gitAnswers.initializeGit) {
+        // Ask for the first commit message
+        const commitAnswers = await inquirer.prompt([
+          {
+            type: "input",
+            name: "commitMessage",
+            message: "Enter the first commit message:",
+            default: "chore: initial setup by @rachitbharadwaj/create-next-app",
+          },
+        ]);
+
+        // Initialize Git and make the first commit
+        console.log("Initializing Git...");
+        execSync("git init", { stdio: "inherit" });
+        execSync("git add .", { stdio: "inherit" });
+        execSync(`git commit -m "${commitAnswers.commitMessage}"`, {
+          stdio: "inherit",
+        });
+        console.log(
+          "Git has been successfully initialized with the first commit."
+        );
+      } else {
+        console.log("Git initialization skipped.");
+      }
+    } catch {
+      console.log(
+        "Git is not installed on this system. Skipping Git initialization."
+      );
+    }
   } catch (error) {
     console.error("An error occurred during setup:", error.message);
     process.exit(1);
