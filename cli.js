@@ -31,7 +31,7 @@ async function main() {
     // Step 2: Create Next.js App
     console.log(`Creating a new Next.js app in ${projectPath}...`);
     execSync(
-      `npx create-next-app@latest ${projectPath} --ts --eslint --tailwind --src-dir=false --app --import-alias=@/* --use-turbopack`,
+      `npx create-next-app@latest ${projectPath} --ts --eslint --tailwind --app --use-turbopack --src-dir=false --import-alias=@/* --yes`,
       { stdio: "inherit" }
     );
 
