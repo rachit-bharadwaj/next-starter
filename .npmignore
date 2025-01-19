@@ -1,0 +1,17 @@
+# Ignore unnecessary files
+node_modules/
+npm-debug.log
+.git/
+*.log
+.DS_Store
+
+# Ignore test files
+__tests__/
+test/
+
+# Ignore local build or IDE configurations
+dist/
+coverage/
+.vscode/
+.idea/
+.env

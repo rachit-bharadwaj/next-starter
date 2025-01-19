@@ -2,6 +2,15 @@
 
 A CLI tool to create a fully customized Next.js application quickly and easily. This package sets up a Next.js project preconfigured with Tailwind CSS, Shadcn, TypeScript, and custom folder structures, saving you time and effort.
 
+## Opensource Project
+
+Visit the **[GitHub Repository](https://github.com/rachit-bharadwaj/next-starter)** to access the source code, report issues, or contribute:
+
+
+
+If you find this project useful, please ⭐️ star the repository:
+[![GitHub stars](https://img.shields.io/github/stars/rachit-bharadwaj/next-starter.svg?style=social&label=Star)](https://github.com/rachit-bharadwaj/next-starter)
+
 ## Table of Contents
 
 - [Installation](#installation)
@@ -160,14 +169,3 @@ For any issues or feature requests, please open an issue or contact me at [rachi
 - Run `npm install` to ensure all dependencies are installed correctly.
 
 Happy coding! 🚀
-
----
-
-### **Key Changes**
-
-1. **Added Customization Section**: Highlights predefined configurations (Tailwind, Shadcn, Metadata, Folder Structure).
-2. **Updated Project Structure**: Matches the new folder structure.
-3. **Emphasized Features**: Detailed the key features provided by your CLI tool.
-4. **Polished the Usage Instructions**: Included commands for installation, navigation, and starting the server.
-
-Let me know if you need further edits! 😊
