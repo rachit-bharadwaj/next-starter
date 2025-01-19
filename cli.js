@@ -33,6 +33,7 @@ async function main() {
 
   if (projectName === ".") {
     projectPath = process.cwd();
+    projectName = path.basename(projectPath); // Set projectName to the current directory name
 
     // Check if the current directory is empty
     if (readdirSync(projectPath).length > 0) {
