@@ -201,6 +201,7 @@ export default function RootLayout({
     console.log("Creating additional folders...");
     const additionalFolders = [
       "contexts",
+      "constants",
       "components",
       "containers",
       "partials",
